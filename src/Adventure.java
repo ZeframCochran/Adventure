@@ -2,6 +2,8 @@
 Template for the game programming assignment
 Jerod Ewert
 3/26/2015
+
+Story based on The Wreck of the Charles Dexter Ward pt. 1  by  Elizabeth Bear and Sarah Monette
 */
 public class Adventure{
  //Items that can be LOOKed at
