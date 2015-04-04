@@ -43,8 +43,10 @@ public class Adventure{
 
 //methods
 	public static void main(String[] args){
-		Look("bed");
-		getCommands();
+		while(true){
+			look("bed");
+			getCommands();
+		}
 	}
 
 	//Take user input, trigger the doCommand method

@@ -1,0 +1,12 @@
+The world!
+----------
+
+[bed]-[room/access tunnel]-[station hallway]->Galley
+           |
+           [escape pod]
+
+Gally->[toves/elizabeth bears]-[coin op clothing machine]->Hallway
+Hallway->[Hiring office]
+
+All credit for the story goes to Elizabeth Bear a fantastic scifi author.
+

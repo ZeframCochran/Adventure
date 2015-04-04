@@ -1,0 +1,24 @@
+Adventure!
+----------
+A text-based game for students of java.
+This version is my attempt at a good clean solution
+that I can based the assignment write-up off of.
+
+This students in this semester have typically been given a layout to adhere to.
+I intend to create a good structure so that the path to dev is clear to students,
+and also to ensure that my assumptions about the structure are valid.
+
+Goals:
+Only use tools from CSC15 ch1-5 (no custom objects or arrays)
+
+Input:
+  Should be given as text and handled by a scanner.
+  Students should use a switch-case to route the commands to the correct handler
+
+output:
+  a description of the situation should be printed to the screen
+  whenever a hero changes rooms/caves/dungeons/whatever
+  beginning rooms should teach the user their available commands
+
+  unfortunately, every item's state must be tracked by variables for now.
+  this means e should have few items.

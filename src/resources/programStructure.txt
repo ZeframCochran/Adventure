@@ -1,0 +1,22 @@
+Adventure class
+ variables to describe items that can be LOOKed at
+ Variables to describe the result of actions
+ Variables too track the state of our hero
+
+ Methods:
+  void getCommands()
+    take user input, trigger the interpreter function
+  boolean doCommand(String)
+    do whatever the command entails or return false
+  getRoom(int x, int y)
+    report which room our hero is in.
+  move(int x, int y)
+    change our character's position
+  look()
+    describe the current room, capitalizing any items in the room
+  get(String)
+    set 'hasITEM' to true.
+    e.g. boolean hasClothes = false; to start with
+    get("clothes") should set hasClothes to true.
+  Any other commands need their own method.
+
