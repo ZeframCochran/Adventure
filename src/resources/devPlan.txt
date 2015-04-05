@@ -22,3 +22,15 @@ output:
 
   unfortunately, every item's state must be tracked by variables for now.
   this means e should have few items.
+
+Structure:
+	The world will be represented by a 2d array of rooms. Each room name will be stored in indices based on the map.
+	The room's features will be fetched from methods that take the name of the room and the piece of data to return.
+	[room][Description|exits|items|coordinates] 
+	The room names will be local constants for integers to facilitate clean naming
+
+public static int BED = 1;
+rooms[BED][DESCRIPTION] should give the description of the bedroom.
+
+
+
