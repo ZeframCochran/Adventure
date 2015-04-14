@@ -33,8 +33,6 @@ public class Adventure{
 	static final int DESCRIPTION = 1;
 	static final int EXITS = 2;
 	static final int ITEMS = 3;
-	static final int ROW = 4;
-	static final int COLUMN = 5;
 	
 	
 	//Labels for items
@@ -65,29 +63,32 @@ public class Adventure{
 		
 		System.out.println(introduction);
 		while(!gameOver){
-			String command = kb.nextLine();
-			if(command.contains(" ")){
-				String target = command.substring(command.indexOf(" ") + 1, command.length());
-				command = command.substring(0, command.indexOf(" "));
-				doCommand(command, target);
-			}
-			else{
-				doCommand(command);
-			}
+			getCommand();
 		}
+	}
+
+
+	private static void getCommand() {
+		System.out.print("> ");
+		String command = kb.nextLine();
+		if(command.contains(" ")){
+			String target = splitString(command)[1];
+			command = splitString(command)[0];
+			
+			doCommand(command, target);
+		}
+		else{
+			doCommand(command);
+		}		
 	}
 
 
 	private static void createMap() {
 		//Bedroom descriptions
 		rooms[BEDROOM][NAME] = "bedroom";
-		rooms[BEDROOM][DESCRIPTION] = "You appear to be in the station maintenance tunnels, which is good because you cant afford anything else.\nBelow you, an emergency ESCAPE POD hangs in the vacuum of space, a cylinder meant to contain a single human body"
-				+"\nYou shudder to think of staying inside one on these unheated metal coffins for days or weeks on end, waiting for rescue."
-				+"\nYour earpiece speaks in a tinny voice: Today is your job interview. You had better GO. The computer suggests you GO into the HALLWAY.";
+		rooms[BEDROOM][DESCRIPTION] = "You appear to be in the station maintenance tunnels, which is good because you cant afford anything else.\n";
 		rooms[BEDROOM][EXITS] = "Hallway";
 		rooms[BEDROOM][ITEMS] = "";
-		rooms[BEDROOM][ROW] = "0";
-		rooms[BEDROOM][COLUMN] = "0";
 		
 		//Hallway Description
 		rooms[HALLWAY][NAME] = "hallway";
@@ -97,8 +98,6 @@ public class Adventure{
 				+"\nWait...Is that?..COINS on the floor! GET them and go to the GALLEY for some clean clothes.";
 		rooms[HALLWAY][EXITS] = "BEDROOM, GALLEY";
 		rooms[HALLWAY][ITEMS] = "COINS";
-		rooms[HALLWAY][ROW] = "0";
-		rooms[HALLWAY][COLUMN] = "1";
 		
 		//Galley
 		rooms[GALLEY][NAME] = "galley";
@@ -106,8 +105,6 @@ public class Adventure{
 				+"\nPUT the COINS in to make yourself appear less insane.";
 		rooms[GALLEY][EXITS] = "HALLWAY, ELEVATOR";
 		rooms[GALLEY][ITEMS] = "vending MACHINE";
-		rooms[GALLEY][ROW] = "0";
-		rooms[GALLEY][COLUMN] = "2";
 		
 		//Elevator
 		rooms[ELEVATOR][NAME] = "elevator";
@@ -121,8 +118,6 @@ public class Adventure{
 				+"-In memory of the valiant Sarah Monette";
 		rooms[ELEVATOR][EXITS] = "GALLEY, OFFICE";
 		rooms[ELEVATOR][ITEMS] = "PLAQUE";
-		rooms[ELEVATOR][ROW] = "0";
-		rooms[HALLWAY][COLUMN] = "3";
 
 		//Office
 		rooms[OFFICE][NAME] = "office";
@@ -136,8 +131,6 @@ public class Adventure{
 				+"\nYou are hired. You are saved. (You are doomed.)";
 		rooms[OFFICE][EXITS] = "ELEVATOR";
 		rooms[OFFICE][ITEMS] = "";
-		rooms[OFFICE][ROW] = "0";
-		rooms[OFFICE][COLUMN] = "4";
 
 		
 		items[COINS][NAME] = "coins";
@@ -252,5 +245,16 @@ public class Adventure{
 	public static void put(String item){
 		character[INVENTORY] = character[INVENTORY].replace(item, "");
 		System.out.println("Removed " +item+" from the inventory");
+	}
+	
+	public static String[] splitString(String input) {
+		
+		String[] output = new String[2];
+		String target = input.substring(input.indexOf(" ") + 1, input.length());
+		String command = input.substring(0, input.indexOf(" "));
+		output[0] = command;
+		output[1] = target;
+		
+		return output;
 	}
 }
